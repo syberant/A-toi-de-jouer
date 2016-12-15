@@ -25,7 +25,6 @@ function initMap() {
     });
 
     // creates new marker
-
     var selectedMarker = new google.maps.Marker({
         draggable: true,
         position: selectedCoords,
