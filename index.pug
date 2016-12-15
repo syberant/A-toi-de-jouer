@@ -1,0 +1,14 @@
+doctype html
+html
+    head
+        title Title
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        link(href="style.css", rel="stylesheet")
+
+    body
+        div#street-view
+        div#map
+
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+        script(src="script.js")
+        script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjaGxhrqlpCyiD2NC1w5yjzyXF0-OcZ5c&callback=initMap", async, defer)
