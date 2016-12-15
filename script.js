@@ -25,7 +25,8 @@ function initMap() {
     });
 
     // creates new marker
-    var marker = new google.maps.Marker({
+
+    var selectedMarker = new google.maps.Marker({
         draggable: true,
         position: selectedCoords,
         map: map,
@@ -38,8 +39,8 @@ function initMap() {
             selectedCoords.lng = event.latLng.lng();
             document.getElementById("lat").value = event.latLng.lat();
             document.getElementById("lng").value = event.latLng.lng();
-            marker.setPosition(selectedCoords);
-            marker.setMap(map);
+            selectedMarker.setPosition(selectedCoords);
+            selectedMarker.setMap(map);
 
     });
 }
