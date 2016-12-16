@@ -3,25 +3,41 @@ var listCoords = [
     // Eiffeltoren
     {
         lat: 48.857899,
-        lng: 2.295111
+        lng: 2.295111,
     },
-    // Charleroi
+    // Pont d'Avignon
     {
-        lat: 50.411704,
-        lng: 4.444403
+        lat: 43.952919,
+        lng: 4.803665,
+    },
+    // Mont Saint-Michel
+    {
+        lat: 48.6335883,
+        lng: -1.510495
+    },
+    // Carnac
+    {
+        lat: 47.5926204,
+        lng: -3.0834078
     }
 ];
 var coords;
 var map;
 var panorama;
+var round = 1;
+var rounds = 3;
+var distances = [];
 var selectedCoords = {
     lat: null,
     lng: null
 }
 
-var randomCoord = Math.floor(Math.random() * (listCoords.length));
-console.log(randomCoord);
-coords = listCoords[randomCoord];
+function selectRandomCoords() {
+    var randomCoord = Math.floor(Math.random() * (listCoords.length));
+    console.log(randomCoord);
+    coords = listCoords[randomCoord];
+    listCoords.splice(randomCoord, 1);
+}
 
 // initalises map
 function initMap() {
@@ -33,7 +49,7 @@ function initMap() {
     panorama = new google.maps.StreetViewPanorama(document.getElementById('street-view'),
     {
         position: {lat: coords.lat, lng: coords.lng},
-        pov: {heading: 165, pitch: 0},
+        pov: {heading: 0, pitch: 0},
         zoom: 1
     });
 
@@ -82,3 +98,35 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 	if (unit=="N") { dist = dist * 0.8684 }
 	return dist
 }
+
+function changePosition() {
+    panorama = new google.maps.StreetViewPanorama(document.getElementById('street-view'),
+    {
+        position: {lat: coords.lat, lng: coords.lng},
+        pov: {heading: 0, pitch: 0},
+        zoom: 1
+    });
+}
+
+function resetMarker() {
+    var selectedMarker = new google.maps.Marker({
+        draggable: true,
+        position: null,
+        map: map,
+        title: "Selected location"
+    });
+}
+
+function submit() {
+    if (round >= rounds) {
+        distances[round - 1] = distance(coords.lat, coords.lng, selectedCoords.lat, selectedCoords.lng, "K");
+        console.log(distances);
+    } else {
+        distances[round - 1] = distance(coords.lat, coords.lng, selectedCoords.lat, selectedCoords.lng, "K");
+        round ++;
+        selectRandomCoords();
+        changePosition();
+    }
+}
+
+selectRandomCoords();
