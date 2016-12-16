@@ -1,14 +1,27 @@
 // vars
-var coords = {
-    lat: 48.857899,
-    lng: 2.295111
-}
+var listCoords = [
+    // Eiffeltoren
+    {
+        lat: 48.857899,
+        lng: 2.295111
+    },
+    // Charleroi
+    {
+        lat: 50.411704,
+        lng: 4.444403
+    }
+];
+var coords;
 var map;
 var panorama;
 var selectedCoords = {
     lat: null,
     lng: null
 }
+
+var randomCoord = Math.floor(Math.random() * (listCoords.length));
+console.log(randomCoord);
+coords = listCoords[randomCoord];
 
 // initalises map
 function initMap() {
@@ -41,6 +54,17 @@ function initMap() {
             selectedMarker.setPosition(selectedCoords);
             selectedMarker.setMap(map);
             document.getElementById("km").value = distance(coords.lat, coords.lng, selectedCoords.lat, selectedCoords.lng, "K");
+    });
+
+    // drag changes marker
+    google.maps.event.addListener(selectedMarker, 'dragend', function(event) {
+        selectedCoords.lat = event.latLng.lat();
+        selectedCoords.lng = event.latLng.lng();
+        document.getElementById("lat").value = event.latLng.lat();
+        document.getElementById("lng").value = event.latLng.lng();
+        selectedMarker.setPosition(selectedCoords);
+        selectedMarker.setMap(map);
+        document.getElementById("km").value = distance(coords.lat, coords.lng, selectedCoords.lat, selectedCoords.lng, "K");
     });
 }
 
