@@ -96,13 +96,8 @@ function randomCoords(erase) {
 	// erase the chosen coordinates if erase = true
 	if (erase) {
 		var changeCoords = [];
-		if (randomCoord == (listCoords.length - 1)) {
-			listCoords.pop();
-		}
-		else {
-			changeCoords = listCoords.slice(0, randomNumber);
-			listCoords = changeCoords.concat(listCoords.slice(randomNumber + 1, listCoords.length - 1));
-		}
+		changeCoords = listCoords.slice(0, randomNumber);
+		listCoords = changeCoords.concat(listCoords.slice(randomNumber + 1, listCoords.length));
 	}
 	
 	// return the random coordinates
