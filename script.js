@@ -20,9 +20,12 @@ var selectedCoords = {
     lng: null
 }
 
+/* disabled first random coordinates function to test and use more advanced one.
 var randomCoord = Math.floor(Math.random() * (listCoords.length));
 console.log(randomCoord);
 coords = listCoords[randomCoord];
+*/
+coords = randomCoords(false);
 
 // initalises map
 function initMap() {
@@ -85,10 +88,10 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 }
 
 // randomCoord function
-function randomCoord(erase) {
+function randomCoords(erase) {
 	// get random coordinates from listCoords
 	var randomNumber = Math.floor(Math.random() * (listCoords.length));
-	randomCoord = listCoords[randomNumber];
+	var randomCoord = listCoords[randomNumber];
 	
 	// erase the chosen coordinates if erase = true
 	if (erase) {
