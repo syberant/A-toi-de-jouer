@@ -39,7 +39,6 @@ var selectedCoords = {
 
 function selectRandomCoords() {
     var randomCoord = Math.floor(Math.random() * (listCoords.length));
-    console.log(randomCoord);
     coords = listCoords[randomCoord];
     listCoords.splice(randomCoord, 1);
 }
