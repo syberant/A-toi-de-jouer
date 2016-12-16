@@ -25,7 +25,7 @@ var coords;
 var map;
 var panorama;
 var round = 1;
-var rounds = 3;
+var rounds = 4;
 var distances = [];
 var selectedCoords = {
     lat: null,
