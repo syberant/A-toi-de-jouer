@@ -1,5 +1,5 @@
 // vars
-var beginCoords = [
+var listCoords = [
     // Eiffeltoren
     {
         lat: 48.857899,
@@ -21,7 +21,6 @@ var beginCoords = [
         lng: -3.0834078
     }
 ];
-var listCoords = beginCoords;
 var coords;
 var map;
 var panorama;
@@ -33,21 +32,12 @@ var selectedCoords = {
     lng: null
 }
 
-<<<<<<< HEAD
-/* disabled first random coordinates function to test and use more advanced one.
-var randomCoord = Math.floor(Math.random() * (listCoords.length));
-console.log(randomCoord);
-coords = listCoords[randomCoord];
-*/
-coords = randomCoords(false);
-=======
 function selectRandomCoords() {
     var randomCoord = Math.floor(Math.random() * (listCoords.length));
     console.log(randomCoord);
     coords = listCoords[randomCoord];
     listCoords.splice(randomCoord, 1);
 }
->>>>>>> gh-pages
 
 // initalises map
 function initMap() {
@@ -109,30 +99,6 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 	return dist
 }
 
-<<<<<<< HEAD
-// randomCoord function
-function randomCoords(erase) {
-	// get random coordinates from listCoords
-	var randomNumber = Math.floor(Math.random() * (listCoords.length));
-	var randomCoord = listCoords[randomNumber];
-	
-	// erase the chosen coordinates if erase = true
-	if (erase) {
-		var changeCoords = [];
-		if (randomCoord == (listCoords.length - 1)) {
-			listCoords.pop();
-		}
-		else {
-			changeCoords = listCoords.slice(0, randomNumber);
-			listCoords = changeCoords.concat(listCoords.slice(randomNumber + 1, listCoords.length - 1));
-		}
-	}
-	
-	// return the random coordinates
-	console.log("The chosen coordinates are: "+randomCoord.lat+", "+randomCoord.lng+" and erase was "+erase);
-	return randomCoord;
-}
-=======
 function changePosition() {
     panorama = new google.maps.StreetViewPanorama(document.getElementById('street-view'),
     {
@@ -164,4 +130,3 @@ function submit() {
 }
 
 selectRandomCoords();
->>>>>>> gh-pages
