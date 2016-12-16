@@ -1,5 +1,5 @@
 // vars
-var listCoords = [
+var beginCoords = [
     // Eiffeltoren
     {
         lat: 48.857899,
@@ -11,6 +11,7 @@ var listCoords = [
         lng: 4.444403
     }
 ];
+var listCoords = beginCoords;
 var coords;
 var map;
 var panorama;
@@ -81,4 +82,27 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 	if (unit=="K") { dist = dist * 1.609344 }
 	if (unit=="N") { dist = dist * 0.8684 }
 	return dist
+}
+
+// randomCoord function
+function randomCoord(erase) {
+	// get random coordinates from listCoords
+	var randomNumber = Math.floor(Math.random() * (listCoords.length));
+	randomCoord = listCoords[randomNumber];
+	
+	// erase the chosen coordinates if erase = true
+	if (erase) {
+		var changeCoords = [];
+		if (randomCoord == (listCoords.length - 1)) {
+			listCoords.pop();
+		}
+		else {
+			changeCoords = listCoords.slice(0, randomNumber);
+			listCoords = changeCoords.concat(listCoords.slice(randomNumber + 1, listCoords.length - 1));
+		}
+	}
+	
+	// return the random coordinates
+	console.log("The chosen coordinates are: "+randomCoord.lat+", "+randomCoord.lng+" and erase was "+erase);
+	return randomCoord;
 }
