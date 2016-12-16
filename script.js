@@ -26,8 +26,8 @@ coords = listCoords[randomCoord];
 // initalises map
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: coords.lat, lng: coords.lng},
-    zoom: 2
+    center: {lat: 52.087451, lng: 5.099160},
+    zoom: 1
     });
 
     panorama = new google.maps.StreetViewPanorama(document.getElementById('street-view'),
