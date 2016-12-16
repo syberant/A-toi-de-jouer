@@ -129,4 +129,6 @@ function submit() {
     }
 }
 
+
+
 selectRandomCoords();
