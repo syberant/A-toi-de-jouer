@@ -19,13 +19,18 @@ var listCoords = [
     {
         lat: 47.5926204,
         lng: -3.0834078
+    },
+    // Festival de Cannes
+    {
+        lat: 43.5509158,
+        lng: 7.0186942
     }
 ];
 var coords;
 var map;
 var panorama;
 var round = 1;
-var rounds = 4;
+var rounds = 5;
 var distances = [];
 var selectedCoords = {
     lat: null,
@@ -111,21 +116,23 @@ function changePosition() {
 function resetMarker() {
     var selectedMarker = new google.maps.Marker({
         draggable: true,
-        position: null,
+        position: {lat: null, lng: null},
         map: map,
         title: "Selected location"
     });
+    // selectedMarker.setMap(null);
 }
 
 function submit() {
     if (round >= rounds) {
         distances[round - 1] = distance(coords.lat, coords.lng, selectedCoords.lat, selectedCoords.lng, "K");
-        console.log(distances);
+        document.getElementById("distances").innerHTML = distances;
     } else {
         distances[round - 1] = distance(coords.lat, coords.lng, selectedCoords.lat, selectedCoords.lng, "K");
         round ++;
         selectRandomCoords();
         changePosition();
+        resetMarker();
     }
 }
 
