@@ -1,14 +1,25 @@
 // vars
-var coords = {
-    lat: 48.857899,
-    lng: 2.295111
-}
+var listCoords = [
+    {
+        lat: 48.857899,
+        lng: 2.295111
+    },
+    {
+        lat: 50.411704,
+        lng: 4.444403
+    }
+];
+var coords;
 var map;
 var panorama;
 var selectedCoords = {
     lat: null,
     lng: null
 }
+
+var randomCoord = Math.floor(Math.random() * (listCoords.length));
+console.log(randomCoord);
+coords = listCoords[randomCoord];
 
 // initalises map
 function initMap() {
