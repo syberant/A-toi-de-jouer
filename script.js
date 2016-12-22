@@ -37,6 +37,7 @@ var panorama;
 var round = 1;
 var rounds = 5;
 var distances = [];
+var points = [];
 var selectedCoords = {
     lat: null,
     lng: null
@@ -129,7 +130,6 @@ function resetMarker() {
 
 function submit() {
     if (round >= rounds) {
-        var points = [];
         distances[round - 1] = distance(coords.lat, coords.lng, selectedCoords.lat, selectedCoords.lng, "K");
         points[round - 1] = 1 / distance * 1000000 * coords.multiplier;
         document.getElementById("points").innerHTML = points;
