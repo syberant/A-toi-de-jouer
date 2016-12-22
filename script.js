@@ -129,7 +129,7 @@ function resetMarker() {
 
 function submit() {
     if (round >= rounds) {
-        var points;
+        var points = [];
         distances[round - 1] = distance(coords.lat, coords.lng, selectedCoords.lat, selectedCoords.lng, "K");
         points[round - 1] = 1 / distance * 1000000 * coords.multiplier;
         document.getElementById("points").innerHTML = points;
