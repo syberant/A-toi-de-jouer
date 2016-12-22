@@ -4,26 +4,31 @@ var listCoords = [
     {
         lat: 48.857899,
         lng: 2.295111,
+        multiplier: 0.2
     },
     // Pont d'Avignon
     {
         lat: 43.952919,
         lng: 4.803665,
+        multiplier: 1
     },
     // Mont Saint-Michel
     {
         lat: 48.6335883,
-        lng: -1.510495
+        lng: -1.510495,
+        multiplier: 1
     },
     // Carnac
     {
         lat: 47.5926204,
-        lng: -3.0834078
+        lng: -3.0834078,
+        multiplier: 1
     },
     // Festival de Cannes
     {
         lat: 43.5509158,
-        lng: 7.0186942
+        lng: 7.0186942,
+        multiplier: 1
     }
 ];
 var coords;
@@ -113,21 +118,23 @@ function changePosition() {
 }
 
 function resetMarker() {
-    var selectedMarker = new google.maps.Marker({
-        draggable: true,
-        position: {lat: null, lng: null},
-        map: map,
-        title: "Selected location"
-    });
-    // selectedMarker.setMap(null);
+    // selectedMarker = new google.maps.Marker({
+    //     draggable: true,
+    //     position: {lat: null, lng: null},
+    //     map: map,
+    //     title: "Selected location"
+    // });
+    google.maps.selectedMarker.setMap(null);
 }
 
 function submit() {
     if (round >= rounds) {
+        var points;
         distances[round - 1] = distance(coords.lat, coords.lng, selectedCoords.lat, selectedCoords.lng, "K");
+        points[round - 1] = 1 / distance * 1000000 * coords.multiplier;
         document.getElementById("distances").innerHTML = distances;
     } else {
-        distances[round - 1] = distance(coords.lat, coords.lng, selectedCoords.lat, selectedCoords.lng, "K");
+        distances[round - 1] = 100000 * (1 / (distance(coords.lat, coords.lng, selectedCoords.lat, selectedCoords.lng, "K") * coords.multiplier));
         round ++;
         selectRandomCoords();
         changePosition();
