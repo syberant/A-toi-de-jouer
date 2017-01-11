@@ -47,10 +47,34 @@ var listCoords = [
     	lng: 55.5205055,
     multiplier: 2
     },
-    // Zwitserland, Meer van Genève
+    // la Suisse, Genève
     {
     	lat: 46.2083182,
     	lng:6.1646913,
+        multiplier: 1
+    },
+    // Straat in de hoofdstad van Cambodja
+    {
+    	lat: 11.5496568,
+    	lng:104.8939058,
+        multiplier: 1
+    },
+    // Woestijn met gebouwen in Marokkaanse sfeer
+    {
+        lat: 33.5673037,
+    	lng: -7.553053,
+        multiplier: 1.5
+    },
+    // Lac d’Annecy
+    {
+	    lat: 46.846764,
+	    lng:-71.124211,
+        multiplier: 1
+    },
+    // Sahara Marrokko
+    {
+	    lat: 29.6367273,
+	    lng: -5.5629441,
         multiplier: 1
     },
 ];
