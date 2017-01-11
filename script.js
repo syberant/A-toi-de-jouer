@@ -32,8 +32,8 @@ var listCoords = [
     },
     // Canada (Detroit) (Ambassador Bridge)
     {
-    	lat: 42.310951
-    	Ing -83.073300
+    	lat: 42.310951,
+    	lng: -83.073300,
     	multiplier: 1
     },
     // Québec, Canada
