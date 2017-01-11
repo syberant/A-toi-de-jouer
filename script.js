@@ -101,11 +101,7 @@ function resetMarker() {
 function submit() {
     if (round >= rounds) {
         distances[round - 1] = distance(coords.lat, coords.lng, selectedCoords.lat, selectedCoords.lng, "K");
-        if (distances[round - 1] == 0) {
-            points[round - 1] = 0;
-        } else {
-            points[round - 1] = 1 / distance * 1000000 * coords.multiplier;
-        }
+        points[round - 1] = 1 / distance * 1000000 * coords.multiplier;
         document.getElementById("points").innerHTML = points;
     } else {
         distances[round - 1] = 100000 * (1 / (distance(coords.lat, coords.lng, selectedCoords.lat, selectedCoords.lng, "K") * coords.multiplier));
@@ -114,7 +110,7 @@ function submit() {
         changePosition();
         resetMarker();
     }
-    removeOnNextPlace();
+    // removeOnNextPlace();
 }
 
 selectRandomCoords();

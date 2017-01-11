@@ -45,7 +45,7 @@ var listCoords = [
     {
     	lat: -21.2832842,
     	lng: 55.5205055,
-    multiplier: 2
+        multiplier: 2
     },
     // la Suisse, Genève
     {
