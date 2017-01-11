@@ -114,6 +114,13 @@ function submit() {
         changePosition();
         resetMarker();
     }
+    removeOnNextPlace();
 }
 
 selectRandomCoords();
+
+function removeOnNextPlace() {
+    document.getElementById("lat").value = "";
+    document.getElementById("lng").value = "";
+	document.getElementById("km").value = "";
+}
