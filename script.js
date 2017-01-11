@@ -38,14 +38,14 @@ var listCoords = [
     },
     // Québec, Canada
     {
-    	lat: ,46.846764
-    	lng:,-71.124211
-    multiplier: 1
+    	lat: 46.846764,
+    	lng: -71.124211,
+        multiplier: 1
     },
     // Réunion, Le Tampon
     {
-    	lat: ,-21.2832842
-    	lng:,55.5205055
+    	lat: -21.2832842,
+    	lng: 55.5205055,
     multiplier: 2
     },
 ];
