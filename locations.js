@@ -47,4 +47,10 @@ var listCoords = [
     	lng: 55.5205055,
     multiplier: 2
     },
+    // Zwitserland, Meer van Genève
+    {
+    	lat: 46.2083182,
+    	lng:6.1646913,
+        multiplier: 1
+    },
 ];
