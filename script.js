@@ -29,19 +29,7 @@ var listCoords = [
         lat: 43.5509158,
         lng: 7.0186942,
         multiplier: 1
-    },
-    // Canada (Detroit) (Ambassador Bridge)
-    {
-    	lat: 42.310951
-    	Ing -83.073300
-    	multiplier: 1
-    },
-    // Québec, Canada
-    {
-    	lat: ,46.846764
-    	lng:,-71.124211
-    multiplier: 1
-    },
+    }
 ];
 var coords;
 var map;
@@ -141,13 +129,12 @@ function resetMarker() {
 }
 
 function submit() {
+	/*if () {
+	    return
+	}*/
     if (round >= rounds) {
         distances[round - 1] = distance(coords.lat, coords.lng, selectedCoords.lat, selectedCoords.lng, "K");
-        if (distances[round - 1] == 0) {
-            points[round - 1] = 0;
-        } else {
-            points[round - 1] = 1 / distance * 1000000 * coords.multiplier;
-        }
+        points[round - 1] = 1 / distance * 1000000 * coords.multiplier;
         document.getElementById("points").innerHTML = points;
     } else {
         distances[round - 1] = 100000 * (1 / (distance(coords.lat, coords.lng, selectedCoords.lat, selectedCoords.lng, "K") * coords.multiplier));
@@ -156,6 +143,9 @@ function submit() {
         changePosition();
         resetMarker();
     }
+	document.getElementById("lat").value = "";
+	document.getElementById("lng").value = "";
+	document.getElementById("km").value = "";
 }
 
 selectRandomCoords();
